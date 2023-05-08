@@ -94,6 +94,7 @@ namespace StockCardiologia.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,NSerie,Remito,Planilla,FechaProd,Condicion,DepositoId")] Equipo equipo)
         {
+            ModelState.Remove("Deposito");
             if (id != equipo.Id)
             {
                 return NotFound();
