@@ -27,7 +27,10 @@ namespace StockCardiologia.Controllers
 
             if(!string.IsNullOrEmpty(nameFilter))
             {
-                query = query.Where(x=>x.NSerie.ToLower().Contains(nameFilter.ToLower()));
+                query = query.Where(x=>x.NSerie.ToLower().Contains(nameFilter.ToLower()) ||
+                    x.Remito.ToLower().Contains(nameFilter.ToLower()) ||
+                    x.Planilla.ToLower().Contains(nameFilter.ToLower()) ||
+                    x.Condicion.ToLower().Contains(nameFilter.ToLower()));
             }
 
             var model = new DepositoViewModel ();
