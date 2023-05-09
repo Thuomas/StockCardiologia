@@ -23,7 +23,7 @@ public class Equipo
 
     public int DepositoId { get; set; }
 
-    //[Display(Name = "Deposito Cardiologia")]
+    [Display(Name = "Deposito Cardiologia")]
     public virtual Deposito Deposito { get; set; }
 
 }
