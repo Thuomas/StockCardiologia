@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StockCardiologia.Data;
 using StockCardiologia.Models;
+using StockCardiologia.ViewModels;
 
 namespace StockCardiologia.Controllers
 {
@@ -20,10 +21,20 @@ namespace StockCardiologia.Controllers
         }
 
         // GET: Deposito
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string nameFilter)
         {
+            var query = from equipo in _context.Equipo select equipo;
+
+            if(!string.IsNullOrEmpty(nameFilter))
+            {
+                query = query.Where(x=>x.NSerie.Contains(nameFilter));
+            }
+
+            var model = new DepositoViewModel ();
+            model.Equipos = await query.ToListAsync();
+
               return _context.Deposito != null ? 
-                          View(await _context.Deposito.ToListAsync()) :
+                          View(model) :
                           Problem("Entity set 'DepositoContext.Deposito'  is null.");
         }
 
@@ -91,6 +102,7 @@ namespace StockCardiologia.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,NombreDeposito")] Deposito deposito)
         {
+            ModelState.Remove("Equipos");
             if (id != deposito.Id)
             {
                 return NotFound();

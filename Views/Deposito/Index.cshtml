@@ -1,4 +1,5 @@
-@model IEnumerable<StockCardiologia.Models.Deposito>
+@using StockCardiologia.ViewModels;
+@model DepositoViewModel;
 
 @{
     ViewData["Title"] = "Index";
@@ -9,20 +10,52 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<div class="row">
+    <form method="get" asp-action="Index" asp-controller="Deposito">
+        <div class="col-6 form-group">
+            <input class="form-control" asp-for="NameFilter" >
+        </div>
+        <button class="btn" type="submit"> Buscar </button>
+    </form>
+</div>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NombreDeposito)
+                @Html.DisplayNameFor(model => model.Equipos[0].NSerie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Equipos[0].Remito)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Equipos[0].Planilla)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Equipos[0].FechaProd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Equipos[0].Condicion)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Equipos) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.NombreDeposito)
+                @Html.DisplayFor(modelItem => item.NSerie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remito)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Planilla)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaProd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Condicion)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
