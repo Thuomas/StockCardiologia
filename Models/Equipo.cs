@@ -19,10 +19,11 @@ public class Equipo
     public DateOnly FechaProd { get; set; }
 
     [Display(Name = "Condicion")]
-    public string Condicion { get; set; } 
+    public string Condicion { get; set; }
 
     public int DepositoId { get; set; }
 
+    //[Display(Name = "Deposito Cardiologia")]
     public virtual Deposito Deposito { get; set; }
 
 }
