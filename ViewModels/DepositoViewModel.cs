@@ -12,4 +12,6 @@ public class DepositoViewModel
 
    [Display(Name ="Deposito Cardiologia")]
     public string NombreDeposito { get; set; }
+
+    public List<Deposito> Depositos { get; set; } = new List<Deposito>();
 }

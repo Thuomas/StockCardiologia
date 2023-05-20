@@ -36,6 +36,8 @@ namespace StockCardiologia.Controllers
             var model = new DepositoViewModel ();
             model.Equipos = await query.ToListAsync();
 
+            
+
               return _context.Deposito != null ? 
                           View(model) :
                           Problem("Entity set 'DepositoContext.Deposito'  is null.");

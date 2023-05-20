@@ -1,4 +1,6 @@
-@model IEnumerable<StockCardiologia.Models.Equipo>
+@using StockCardiologia.ViewModels;
+@model EquipoViewModel;
+
 
 @{
     ViewData["Title"] = "Index";
@@ -9,32 +11,43 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+<div class="row">
+    <form method="get" asp-action="Index" asp-controller="Equipo">
+        <div class="col-6 form-group">
+            <input class="form-control" asp-for="NameFilter" >
+        </div>
+        <br>
+        <button class="btn btn-primary" type="submit"> Buscar </button>
+    </form>
+</div>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NSerie)
+                @Html.DisplayNameFor(model => model.Equipos[0].NSerie)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Remito)
+                @Html.DisplayNameFor(model => model.Equipos[0].Remito)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Planilla)
+                @Html.DisplayNameFor(model => model.Equipos[0].Planilla)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaProd)
+                @Html.DisplayNameFor(model => model.Equipos[0].FechaProd)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Condicion)
+                @Html.DisplayNameFor(model => model.Equipos[0].Condicion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Deposito)
+                @Html.DisplayNameFor(model => model.Equipos[0].Deposito.NombreDeposito)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Equipos) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.NSerie)
@@ -52,7 +65,7 @@
                 @Html.DisplayFor(modelItem => item.Condicion)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Deposito.NombreDeposito)
+                @Html.DisplayFor(modelItem => item.Deposito.Id) @*ToDo ver el LazyLoad*@
 
             </td>
             <td>
