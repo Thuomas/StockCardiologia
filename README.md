@@ -9,7 +9,7 @@
 
 ## Descripcion
 
-Aplicación de control de stock que permite gestionar el inventario de equipos. Permite ingresar información detallada sobre cada equipo, como número de serie, fecha de producción, número de remito, estado y observaciones. Además, se pueden crear múltiples depósitos para organizar los equipos de manera eficiente.
+Aplicación de control de stock que facilita gestionar el inventario de equipos. Permite ingresar información detallada sobre cada equipo, como número de serie, fecha de producción, número de remito, estado y observaciones. Además, se pueden crear múltiples depósitos para organizar los equipos de manera eficiente.
 
 
 ## 🛠️ Proyecto actualmente en desarrollo 🛠️
