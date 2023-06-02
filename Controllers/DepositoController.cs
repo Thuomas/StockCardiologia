@@ -25,22 +25,22 @@ namespace StockCardiologia.Controllers
         {
             var query = from equipo in _context.Equipo select equipo;
 
-            if(!string.IsNullOrEmpty(nameFilter))
+            if (!string.IsNullOrEmpty(nameFilter))
             {
-                query = query.Where(x=>x.NSerie.ToLower().Contains(nameFilter.ToLower()) ||
+                query = query.Where(x => x.NSerie.ToLower().Contains(nameFilter.ToLower()) ||
                     x.Remito.ToLower().Contains(nameFilter.ToLower()) ||
                     x.Planilla.ToLower().Contains(nameFilter.ToLower()) ||
                     x.Condicion.ToLower().Contains(nameFilter.ToLower()));
             }
 
-            var model = new DepositoViewModel ();
+            var model = new DepositoViewModel();
             model.Equipos = await query.ToListAsync();
 
-            
 
-              return _context.Deposito != null ? 
-                          View(model) :
-                          Problem("Entity set 'DepositoContext.Deposito'  is null.");
+
+            return _context.Deposito != null ?
+                        View(model) :
+                        Problem("Entity set 'DepositoContext.Deposito'  is null.");
         }
 
         // GET: Deposito/Details/5
@@ -74,14 +74,22 @@ namespace StockCardiologia.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,NombreDeposito")] Deposito deposito)
         {
-            ModelState.Remove("Equipos");
-            if (ModelState.IsValid)
-            {
-                _context.Add(deposito);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(deposito);
+
+            
+            var depositoN = new Deposito();
+            depositoN.NombreDeposito = deposito.NombreDeposito;
+            depositoN.Id = deposito.Id;
+            _context.Add(depositoN);
+            _context.SaveChangesAsync();
+            var query = from equipo in _context.Equipo select equipo;
+
+            var model = new Deposito();
+            model.Equipos = await query.ToListAsync();
+
+       
+            return _context.Deposito != null ?
+                        RedirectToAction("Index") :
+                           Problem("Entity set 'DepositoContext.Deposito'  is null.");
         }
 
         // GET: Deposito/Edit/5
@@ -168,14 +176,14 @@ namespace StockCardiologia.Controllers
             {
                 _context.Deposito.Remove(deposito);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool DepositoExists(int id)
         {
-          return (_context.Deposito?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Deposito?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
