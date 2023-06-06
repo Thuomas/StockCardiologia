@@ -22,7 +22,7 @@ public class DepositoService : IDepositoService
     public void Delete(int id)
     {
         var borrar = GetById(id);
-        if(borrar !=null)
+        if (borrar != null)
         {
             _context.Remove(borrar);
             _context.SaveChanges();
@@ -30,20 +30,30 @@ public class DepositoService : IDepositoService
 
     }
 
-    
+
     public List<Deposito> GetAll()
     {
         var query = GetQuery();
         return query.ToList();
     }
 
+    public List<Deposito> GetAll(string nameFilter)
+    {
+        var query = GetQuery();
+        if (!string.IsNullOrEmpty(nameFilter))
+        {
+            query = query.Where(x => x.NombreDeposito.Contains(nameFilter));
+        }
+        return query.ToList();
+    }
+
     public Deposito? GetById(int id)
     {
         var deposito = GetQuery()
-			.Include(x=>x.Equipos)
-			.FirstOrDefault(m=>m.Id == id);
+            .Include(x => x.Equipos)
+            .FirstOrDefault(m => m.Id == id);
 
-        return deposito;    
+        return deposito;
     }
 
     public void Update(Deposito obj)

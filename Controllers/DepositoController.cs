@@ -8,35 +8,37 @@ using Microsoft.EntityFrameworkCore;
 using StockCardiologia.Data;
 using StockCardiologia.Models;
 using StockCardiologia.ViewModels;
+using StockCardiologia.Services;
 
 namespace StockCardiologia.Controllers
 {
     public class DepositoController : Controller
     {
-        private readonly DepositoContext _context;
+        private IDepositoService _depositoService;
+        private IEquipoService _equipoService;
 
-        public DepositoController(DepositoContext context)
+
+        public DepositoController(IDepositoService depositoService, IEquipoService equipoService)
         {
-            _context = context;
+            _depositoService = depositoService;
+            _equipoService = equipoService;
         }
 
         // GET: Deposito
         public async Task<IActionResult> Index(string nameFilter)
         {
-            var query = from equipo in _context.Equipo select equipo;
+            // var query = from equipo in _context.Equipo select equipo;
 
-            if (!string.IsNullOrEmpty(nameFilter))
-            {
-                query = query.Where(x => x.NSerie.ToLower().Contains(nameFilter.ToLower()) ||
-                    x.Remito.ToLower().Contains(nameFilter.ToLower()) ||
-                    x.Planilla.ToLower().Contains(nameFilter.ToLower()) ||
-                    x.Condicion.ToLower().Contains(nameFilter.ToLower()));
-            }
+            // if (!string.IsNullOrEmpty(nameFilter))
+            // {
+            //     query = query.Where(x => x.NSerie.ToLower().Contains(nameFilter.ToLower()) ||
+            //         x.Remito.ToLower().Contains(nameFilter.ToLower()) ||
+            //         x.Planilla.ToLower().Contains(nameFilter.ToLower()) ||
+            //         x.Condicion.ToLower().Contains(nameFilter.ToLower()));
+            // }
 
+            model.Equipos = _depositoService.GetAll(nameFilter);        
             var model = new DepositoViewModel();
-            model.Equipos = await query.ToListAsync();
-
-
 
             return _context.Deposito != null ?
                         View(model) :
@@ -46,13 +48,12 @@ namespace StockCardiologia.Controllers
         // GET: Deposito/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Deposito == null)
+            if (id == null )
             {
                 return NotFound();
             }
 
-            var deposito = await _context.Deposito
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var deposito = _depositoService.GetById(id.Value);
             if (deposito == null)
             {
                 return NotFound();
@@ -84,15 +85,16 @@ namespace StockCardiologia.Controllers
             var depositoN = new Deposito();
             depositoN.NombreDeposito = deposito.NombreDeposito;
             depositoN.Id = deposito.Id;
-            _context.Add(depositoN);
-            _context.SaveChangesAsync();
-            var query = from equipo in _context.Equipo select equipo;
+            // _context.Add(depositoN);
+            // _context.SaveChangesAsync();
+            // var query = from equipo in _context.Equipo select equipo;
 
-            var model = new Deposito();
-            model.Equipos = await query.ToListAsync();
+            // var model = new Deposito();
+            // model.Equipos = await query.ToListAsync();
 
+            _depositoService.Create(depositoN);
        
-            return _context.Deposito != null ?
+            return _depositoService.Deposito != null ?
                         RedirectToAction("Index") :
                            Problem("Entity set 'DepositoContext.Deposito'  is null.");
         }
@@ -100,12 +102,12 @@ namespace StockCardiologia.Controllers
         // GET: Deposito/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Deposito == null)
+            if (id == null )
             {
                 return NotFound();
             }
 
-            var deposito = await _context.Deposito.FindAsync(id);
+            var deposito = _depositoService.GetById(id.Value);
             if (deposito == null)
             {
                 return NotFound();
@@ -126,45 +128,50 @@ namespace StockCardiologia.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,NombreDeposito")] Deposito deposito)
         {
-            ModelState.Remove("Equipos");
-            if (id != deposito.Id)
-            {
-                return NotFound();
-            }
+            // ModelState.Remove("Equipos");
+            // if (id != deposito.Id)
+            // {
+            //     return NotFound();
+            // }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(deposito);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!DepositoExists(deposito.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(deposito);
+            // if (ModelState.IsValid)
+            // {
+            //     try
+            //     {
+            //         _context.Update(deposito);
+            //         await _context.SaveChangesAsync();
+            //     }
+            //     catch (DbUpdateConcurrencyException)
+            //     {
+            //         if (!DepositoExists(deposito.Id))
+            //         {
+            //             return NotFound();
+            //         }
+            //         else
+            //         {
+            //             throw;
+            //         }
+            //     }
+            //     return RedirectToAction(nameof(Index));
+            // }
+            // return View(deposito);
+            var model = new DepositoViewModel();
+            model.Id = deposito.Id;
+            model.NombreDeposito = deposito.NombreDeposito;
+            model.Equipos = deposito.Equipos;
+            return View (model);
         }
 
         // GET: Deposito/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Deposito == null)
+            //modificar esta accion
+            if (id == null )
             {
                 return NotFound();
             }
 
-            var deposito = await _context.Deposito
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var deposito = _depositoService.GetById(id.Value);
             if (deposito == null)
             {
                 return NotFound();
@@ -178,6 +185,7 @@ namespace StockCardiologia.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            //modificar esta accion
             if (_context.Deposito == null)
             {
                 return Problem("Entity set 'DepositoContext.Deposito'  is null.");
@@ -194,7 +202,7 @@ namespace StockCardiologia.Controllers
 
         private bool DepositoExists(int id)
         {
-            return (_context.Deposito?.Any(e => e.Id == id)).GetValueOrDefault();
+            return _depositoService.GetById(id) != null;
         }
     }
 }
