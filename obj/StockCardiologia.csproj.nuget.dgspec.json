@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dydsoftware\\Desktop\\StockCardiologia\\StockCardiologia.csproj": {}
+    "D:\\StockCardiologia\\StockCardiologia.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dydsoftware\\Desktop\\StockCardiologia\\StockCardiologia.csproj": {
+    "D:\\StockCardiologia\\StockCardiologia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dydsoftware\\Desktop\\StockCardiologia\\StockCardiologia.csproj",
+        "projectUniqueName": "D:\\StockCardiologia\\StockCardiologia.csproj",
         "projectName": "StockCardiologia",
-        "projectPath": "C:\\Users\\dydsoftware\\Desktop\\StockCardiologia\\StockCardiologia.csproj",
-        "packagesPath": "C:\\Users\\dydsoftware\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dydsoftware\\Desktop\\StockCardiologia\\obj\\",
+        "projectPath": "D:\\StockCardiologia\\StockCardiologia.csproj",
+        "packagesPath": "C:\\Users\\Gaston\\.nuget\\packages\\",
+        "outputPath": "D:\\StockCardiologia\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\dydsoftware\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Gaston\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -78,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

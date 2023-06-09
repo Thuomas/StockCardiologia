@@ -17,5 +17,7 @@ namespace StockCardiologia.Data
         public DbSet<StockCardiologia.Models.Deposito> Deposito { get; set; } = default!;
 
         public DbSet<StockCardiologia.Models.Equipo> Equipo { get; set; } = default!;
+
+        public DbSet<StockCardiologia.Models.ServicioTecnico> ServicioTecnico { get; set; } = default!;
     }
 }

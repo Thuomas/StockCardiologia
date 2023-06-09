@@ -26,4 +26,6 @@ public class Equipo
     [Display(Name = "Deposito Cardiologia")]
     public virtual Deposito Deposito { get; set; }
 
+    public virtual List<ServicioTecnico> ServicioTecnicos { get; set; }
+
 }

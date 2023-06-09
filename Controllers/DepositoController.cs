@@ -37,10 +37,11 @@ namespace StockCardiologia.Controllers
             //         x.Condicion.ToLower().Contains(nameFilter.ToLower()));
             // }
 
-            model.Equipos = _depositoService.GetAll(nameFilter);        
+                
             var model = new DepositoViewModel();
+            model.Depositos = _depositoService.GetAll();    
 
-            return _context.Deposito != null ?
+            return model.Depositos != null ?
                         View(model) :
                         Problem("Entity set 'DepositoContext.Deposito'  is null.");
         }
@@ -94,7 +95,7 @@ namespace StockCardiologia.Controllers
 
             _depositoService.Create(depositoN);
        
-            return _depositoService.Deposito != null ?
+            return depositoN != null ?
                         RedirectToAction("Index") :
                            Problem("Entity set 'DepositoContext.Deposito'  is null.");
         }
@@ -186,17 +187,18 @@ namespace StockCardiologia.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             //modificar esta accion
-            if (_context.Deposito == null)
+            if (_depositoService.GetById(id) == null)
             {
                 return Problem("Entity set 'DepositoContext.Deposito'  is null.");
             }
-            var deposito = await _context.Deposito.FindAsync(id);
-            if (deposito != null)
-            {
-                _context.Deposito.Remove(deposito);
-            }
+            // var deposito = await _context.Deposito.FindAsync(id);
+            // if (deposito != null)
+            // {
+            //     _context.Deposito.Remove(deposito);
+            // }
 
-            await _context.SaveChangesAsync();
+            // await _context.SaveChangesAsync();
+            _depositoService.Delete(id);
             return RedirectToAction(nameof(Index));
         }
 

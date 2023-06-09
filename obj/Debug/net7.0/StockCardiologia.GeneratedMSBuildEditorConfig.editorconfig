@@ -9,77 +9,97 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = StockCardiologia
 build_property.RootNamespace = StockCardiologia
-build_property.ProjectDir = C:\Users\dydsoftware\Desktop\StockCardiologia\
+build_property.ProjectDir = d:\StockCardiologia\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\dydsoftware\Desktop\StockCardiologia
+build_property.MSBuildProjectDirectory = d:\StockCardiologia
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/dydsoftware/Desktop/StockCardiologia/Views/Deposito/Create.cshtml]
+[d:/StockCardiologia/Views/Deposito/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwb3NpdG9cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/dydsoftware/Desktop/StockCardiologia/Views/Deposito/Delete.cshtml]
+[d:/StockCardiologia/Views/Deposito/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwb3NpdG9cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/dydsoftware/Desktop/StockCardiologia/Views/Deposito/Details.cshtml]
+[d:/StockCardiologia/Views/Deposito/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwb3NpdG9cRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/dydsoftware/Desktop/StockCardiologia/Views/Deposito/Edit.cshtml]
+[d:/StockCardiologia/Views/Deposito/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwb3NpdG9cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/dydsoftware/Desktop/StockCardiologia/Views/Deposito/Index.cshtml]
+[d:/StockCardiologia/Views/Deposito/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwb3NpdG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/dydsoftware/Desktop/StockCardiologia/Views/Equipo/Create.cshtml]
+[d:/StockCardiologia/Views/Equipo/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBvXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/dydsoftware/Desktop/StockCardiologia/Views/Equipo/Delete.cshtml]
+[d:/StockCardiologia/Views/Equipo/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBvXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/dydsoftware/Desktop/StockCardiologia/Views/Equipo/Details.cshtml]
+[d:/StockCardiologia/Views/Equipo/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBvXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/dydsoftware/Desktop/StockCardiologia/Views/Equipo/Edit.cshtml]
+[d:/StockCardiologia/Views/Equipo/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBvXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/dydsoftware/Desktop/StockCardiologia/Views/Equipo/Index.cshtml]
+[d:/StockCardiologia/Views/Equipo/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/dydsoftware/Desktop/StockCardiologia/Views/Home/Index.cshtml]
+[d:/StockCardiologia/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/dydsoftware/Desktop/StockCardiologia/Views/Home/Privacy.cshtml]
+[d:/StockCardiologia/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/dydsoftware/Desktop/StockCardiologia/Views/Shared/Error.cshtml]
+[d:/StockCardiologia/Views/ServicioTecnico/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljaW9UZWNuaWNvXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/StockCardiologia/Views/ServicioTecnico/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljaW9UZWNuaWNvXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/StockCardiologia/Views/ServicioTecnico/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljaW9UZWNuaWNvXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/StockCardiologia/Views/ServicioTecnico/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljaW9UZWNuaWNvXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/StockCardiologia/Views/ServicioTecnico/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljaW9UZWNuaWNvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/StockCardiologia/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/dydsoftware/Desktop/StockCardiologia/Views/Shared/_ValidationScriptsPartial.cshtml]
+[d:/StockCardiologia/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/dydsoftware/Desktop/StockCardiologia/Views/_ViewImports.cshtml]
+[d:/StockCardiologia/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/dydsoftware/Desktop/StockCardiologia/Views/_ViewStart.cshtml]
+[d:/StockCardiologia/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/dydsoftware/Desktop/StockCardiologia/Views/Shared/_Layout.cshtml]
+[d:/StockCardiologia/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-2178bbe3em
